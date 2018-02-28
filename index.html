@@ -1,0 +1,37 @@
+<!doctype html>
+<html>
+<head>
+	<link rel="stylesheet" href="styles.css"/>
+	<link rel="stylesheet" href="css/normalize.css">
+  	<link rel="stylesheet" href="css/skeleton.css">
+	<title>Creative Project 3</title>
+</head>
+<body>
+	<div id="app">
+		<h1 id="header">Simple Studio Ghibli API</h1>
+		<img id="logo" src="images/logo2.jpg" alt="studio ghibli logo">
+		<button v-on:click="buttonClick('/films')" class="button-primary button">Films</button>
+		<button v-on:click="buttonClick('/people')" class="button-primary button">People</button>
+		<button v-on:click="buttonClick('/locations')" class="button-primary button">Locations</button>
+		<button v-on:click="buttonClick('/species')" class="button-primary button">Species</button>
+		<button v-on:click="buttonClick('/vehicles')" class="button-primary button">Vehicles</button>
+		<div v-if="loading">
+			<p style="margin: 2%;">Loading...</p>
+		</div>
+		<div v-else>
+			<h3 style="margin: 2%;">{{ message }}</h3>
+			<div v-for="index in numElements">
+				<hr style="margin-left: 2%; margin-right:2%;">
+				<div v-for="info in displayInfo[index-1]">
+					<p style="margin: 2%;">{{ info }}</p>
+				</div>
+			</div>
+		</div>
+		<div>
+          <p align="center"><a target="_blank" href="https://github.com/BYU-CS260-Winter-2018/lab-3-kurtishill">GitHub</a></p>
+        </div>
+	</div>
+	<script src="https://cdn.jsdelivr.net/npm/vue@2.5.13/dist/vue.js"></script>
+	<script src="script.js"></script>
+</body>
+</html>
